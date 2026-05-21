@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khas Makassar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', system-ui, sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                      url('https://images.unsplash.com/photo-1606491956689-2ea866880c84?q=80&w=2070') center/cover;
+        }
+        .page {
+            display: none;
+            min-height: 100vh;
+            animation: fadeIn 0.5s ease;
+        }
+        .page.active {
+            display: flex;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s;
+        }
+        .nav-link.active {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-2xl">KM</div>
+                <h1 class="text-2xl font-bold text-orange-600">Khas Makassar</h1>
+            </div>
+            
+            <div class="flex gap-8 text-base font-medium">
+                <a href="#" onclick="showPage('beranda')" class="nav-link active" id="nav-beranda">Beranda</a>
+                <a href="#" onclick="showPage('menu')" class="nav-link" id="nav-menu">Menu</a>
+                <a href="#" onclick="showPage('informasi')" class="nav-link" id="nav-informasi">Informasi</a>
+                <a href="#" onclick="showPage('galeri')" class="nav-link" id="nav-galeri">Galeri</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BERANDA -->
+    <div id="beranda" class="page active hero-bg items-center justify-center text-white">
+        <div class="text-center px-6">
+            <h1 class="text-6xl md:text-7xl font-bold mb-6">Kuliner Khas Makassar</h1>
+            <p class="text-2xl mb-10 max-w-xl mx-auto">Rasakan kelezatan asli dari Kota Anging Mammiri</p>
+            <button onclick="showPage('menu')" 
+                    class="bg-orange-500 hover:bg-orange-600 px-10 py-4 rounded-full text-xl font-semibold">
+                Lihat Menu →
+            </button>
+        </div>
+    </div>
+
+    <!-- MENU -->
+    <div id="menu" class="page bg-white items-start pt-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-orange-600">Menu Khas Makassar</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="border rounded-3xl overflow-hidden shadow">
+                    <img src="https://images.unsplash.com/photo-1567335991483-fc607bad5aa1" class="w-full h-64 object-cover" alt="">
+                    <div class="p-6">
+                        <h3 class="font-bold text-2xl">Coto Makassar</h3>
+                        <p class="text-orange-500">Rp 25.000</p>
+                        <p class="text-gray-600">Sup daging dengan kuah kacang kental.</p>
+                    </div>
+                </div>
+                <div class="border rounded-3xl overflow-hidden shadow">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a9c" class="w-full h-64 object-cover" alt="">
+                    <div class="p-6">
+                        <h3 class="font-bold text-2xl">Sop Konro</h3>
+                        <p class="text-orange-500">Rp 35.000</p>
+                        <p class="text-gray-600">Iga sapi bakar dengan kuah rempah.</p>
+                    </div>
+                </div>
+                <div class="border rounded-3xl overflow-hidden shadow">
+                    <img src="https://images.unsplash.com/photo-1627308595229-5e8e4e8b5c8f" class="w-full h-64 object-cover" alt="">
+                    <div class="p-6">
+                        <h3 class="font-bold text-2xl">Es Pisang Ijo</h3>
+                        <p class="text-orange-500">Rp 15.000</p>
+                        <p class="text-gray-600">Pisang hijau segar dengan sirup manis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFORMASI -->
+    <div id="informasi" class="page bg-orange-50 items-start pt-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Informasi Kuliner</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-3xl shadow">
+                    <h3 class="text-2xl font-semibold mb-6">Ciri Khas Makassar</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li>• Kuah kacang kental berrempah</li>
+                        <li>• Perpaduan budaya Bugis & Makassar</li>
+                        <li>• Rempah dan bahan segar</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow">
+                    <h3 class="text-2xl font-semibold mb-6">Makanan Populer Lainnya</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li>• Pallu Basa</li>
+                        <li>• Burasa</li>
+                        <li>• Nasi Kuning Lengkap</li>
+                        <li>• Ayam Goreng Bugis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GALERI -->
+    <div id="galeri" class="page bg-white items-start pt-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Galeri Kuliner</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <img src="https://images.unsplash.com/photo-1567335991483-fc607bad5aa1" class="rounded-3xl shadow" alt="">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a9c" class="rounded-3xl shadow" alt="">
+                <img src="https://images.unsplash.com/photo-1627308595229-5e8e4e8b5c8f" class="rounded-3xl shadow" alt="">
+                <img src="https://picsum.photos/id/1015/800/800" class="rounded-3xl shadow" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(page) {
+            // Sembunyikan semua halaman
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+            });
+            
+            // Tampilkan halaman yang dipilih
+            document.getElementById(page).classList.add('active');
+            
+            // Highlight navigasi
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.id === `nav-${page}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+  
